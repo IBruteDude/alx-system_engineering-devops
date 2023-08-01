@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# runs the fizzbuzz program in bash lang
 for i in {1..100}; do
 	result=''
 	if (( i % 3 == 0 )); then
