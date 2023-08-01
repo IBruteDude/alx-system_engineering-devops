@@ -1,3 +1,3 @@
-#!/usr/bin/env basha
+#!/usr/bin/env bash
 # a simpler version similar to: for i in $(pidof bash); do echo "$i bash"; done
 pgrep -l bash
