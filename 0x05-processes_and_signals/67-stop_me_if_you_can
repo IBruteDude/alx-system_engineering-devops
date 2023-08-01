@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# sends a termination signal to the process named 7-highlander
 pkill --signal TERM -f 7-highlander

@@ -10,6 +10,6 @@ for i in {1..100}; do
 	if [ "$result" == '' ]; then
 		 result="$i";
 	fi
-	echo $result;
+	echo "$result";
 done
 

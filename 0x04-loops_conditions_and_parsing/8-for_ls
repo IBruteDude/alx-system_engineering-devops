@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-for i in `ls`; do
+# prints the name of all files in the PWD var without the leading numbering
+for i in *; do
 	echo "${i#*-}"
 done

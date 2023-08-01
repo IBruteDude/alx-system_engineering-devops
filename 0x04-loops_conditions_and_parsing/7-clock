@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# prints all minute timings of the day
 hours=0
 while [ $hours -le 12 ]
 do

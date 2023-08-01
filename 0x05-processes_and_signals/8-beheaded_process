@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# sends a KILL signal to the process '7-highlander'
 pkill --signal KILL -f 7-highlander

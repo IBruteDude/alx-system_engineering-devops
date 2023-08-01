@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# prints "To infinity and beyond" indefinitly and traps termination signals
 INVINCIBILITY () {
 	echo "I am invincible!!!";
 }

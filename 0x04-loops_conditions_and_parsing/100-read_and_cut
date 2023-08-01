@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# prints passwd in a specific layout
 exec 3< /etc/passwd
 	awk -F ':' '{print $1,$3,$6}' /etc/passwd | tr ' ' ':'
 #while read -u 3 line; do

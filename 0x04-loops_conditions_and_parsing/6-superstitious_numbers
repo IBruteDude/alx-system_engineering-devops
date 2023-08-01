@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# case matching on bad lucks for 20 numbers
 i=1
 while [ $i -le 20 ]; do
 	echo "$i"

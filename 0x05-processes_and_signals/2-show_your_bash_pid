@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# list all the processes that contain the name 'bash' in them
+#shellcheck disable=SC2009
 ps axuf | grep 'bash'
