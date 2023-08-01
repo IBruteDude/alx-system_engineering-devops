@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+EXITTING () {
+	rm /var/run/myscript.pid;
+	exit;
+}
+HATEIT () {
+	echo 'I hate the kill command';
+	EXITTING;
+}
+LOVEME () {
+	echo 'Y U no love me?!';
+}
+trap EXITTING QUIT
+trap HATEIT TERM
+trap LOVEME INT
+sudo echo $$ > /var/run/myscript.pid
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
