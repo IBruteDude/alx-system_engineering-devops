@@ -1,2 +1,3 @@
 #!/usr/bin/env ruby
-puts ARGV[0].scan(/127.0.0.[0-9]/).join
+regex = /.*\[from:(\+?\w*)\] \[to:(\+?\w*)\] \[flags:(\-?\d*:\-?\d*:\-?\d*:\-?\d*:\-?\d*)\].*/
+puts ARGV[0].gsub(regex, '\1,\2,\3')
