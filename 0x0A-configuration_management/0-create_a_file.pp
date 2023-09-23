@@ -1,3 +1,4 @@
+# create a temporary 'school' file with attributes
 file { 'starter':
   path => '/tmp/school',
   owner => 'www-data',
