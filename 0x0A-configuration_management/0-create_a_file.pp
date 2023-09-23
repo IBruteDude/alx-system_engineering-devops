@@ -1,6 +1,5 @@
 # create a temporary 'school' file with attributes
-file { 'starter':
-  path => '/tmp/school',
+file { '/tmp/school':
   owner => 'www-data',
   group => 'www-data',
   mode => '0744',
