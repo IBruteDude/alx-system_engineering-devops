@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# establishing the ssh rsa key pair over to the server
 ssh -i ~/.ssh/school ubuntu@54.87.160.147
