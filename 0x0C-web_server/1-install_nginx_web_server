@@ -3,6 +3,6 @@
 apt-get install nginx -y
 cd /etc/nginx/ || exit
 mv nginx.conf nginx.conf.backup
-echo "Hello World" > index.html
+echo "Hello World!" > index.html
 echo -e "$(printf "events { } http { server { listen 80; root ${PWD}; } }")" > nginx.conf
 nginx -s reload
