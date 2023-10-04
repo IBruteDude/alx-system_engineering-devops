@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# list all ipv4 ips
+ifconfig | grep 'inet ' | cut -d " " -f 10 | sort
