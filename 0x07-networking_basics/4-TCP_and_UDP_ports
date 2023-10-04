@@ -1,2 +1,3 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+# list all listening ports with associated programs
 netstat --listening --program
