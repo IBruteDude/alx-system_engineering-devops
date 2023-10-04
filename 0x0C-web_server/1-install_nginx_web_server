@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # installs nginx and configures it
-sudo apt-get install nginx -y
+apt-get install nginx -y
 cd /etc/nginx/ || exit
 mv nginx.conf nginx.conf.backup
-echo -e "$(printf 'events { } http { server { listen 80; return 200 "Hello World!\n"; } }')" > nginx.conf
+echo "Hello World" > index.html
+echo -e "$(printf "events { } http { server { listen 80; root ${PWD}; } }")" > nginx.conf
 nginx -s reload
