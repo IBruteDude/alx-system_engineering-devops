@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # installs nginx and configures it
+apt-get update
 apt-get install nginx -y
-cd /etc/nginx/ || exit
-mv nginx.conf nginx.conf.backup
-echo "Hello World!" > index.html
-echo -e "$(printf "events { } http { server { listen 80; root ${PWD}; } }")" > nginx.conf
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 nginx -s reload
