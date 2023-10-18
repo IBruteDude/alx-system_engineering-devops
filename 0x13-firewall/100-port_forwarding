@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+ufw disable
+sudo ufw route allow in on eth0 out on eth1 to all port 8080 from all port 80
+ufw enable
