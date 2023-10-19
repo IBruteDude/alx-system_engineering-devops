@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# attempts to forward traffic from 8080 to 80
 ufw disable
-sudo ufw route allow in on eth0 out on eth1 to all port 8080 from all port 80
+sudo ufw route allow in on eth0 out on eth1 to all port 8080 proto tcp from all port 80 proto tcp
 ufw enable
