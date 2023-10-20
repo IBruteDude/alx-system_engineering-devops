@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+# switch to another user
+su $1
+whoami ; echo ''
