@@ -9,7 +9,7 @@ if __name__ == "__main__":
     id = int(argv[1])
     root = 'https://jsonplaceholder.typicode.com'
 
-    name = json.loads(urlopen(root + f'/users?id={id}').read())[0]['username']
+    name = json.loads(urlopen(root + f'/users?id={id}').read())[0]['name']
     todos = json.loads(urlopen(root + f'/users/{id}/todos').read())
 
     completed = list(filter(lambda dic: dic['completed'], todos))
