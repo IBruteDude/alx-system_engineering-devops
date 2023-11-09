@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# create the Datadog dashboard with all the widgets
+
