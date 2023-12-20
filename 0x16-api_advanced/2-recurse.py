@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """ Module for the recursive requests function """
-import requests as rs
-import json
-from pprint import pp
 from html import unescape
+import json
+import requests as rs
 
 
 headers = {

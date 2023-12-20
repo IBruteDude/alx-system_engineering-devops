@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Module for the number of subsribers function """
-import requests as rs
-import json
 from html import unescape
+import json
+import requests as rs
 
 
 headers = {
