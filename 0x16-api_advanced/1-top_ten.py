@@ -27,20 +27,15 @@ def top_ten(subreddit):
     resp = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
                   headers=headers, params={'limit': 10})
     text = unescape(resp.text)
-    try:
-        data = json.loads(text)
-        print(json.dumps(data))
-        top10 = data["data"]["children"][:10]
-        if len(top10) > 0:
-            for item in top10:
-                print(item["data"]["title"])
-        else:
-            print("None")
-        return ""
-    except json.decoder.JSONDecodeError as e:
+    data = json.loads(text)
+    print(json.dumps(data))
+    top10 = data["data"]["children"][:10]
+    if len(top10) > 0:
+        for item in top10:
+            print(item["data"]["title"])
+    else:
         print("None")
-    except KeyError as e:
-        print("None")
+    return ""
 
 
 if __name__ == '__main__':

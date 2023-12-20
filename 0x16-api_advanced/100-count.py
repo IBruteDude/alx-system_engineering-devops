@@ -28,9 +28,11 @@ def count_words(subreddit, word_list, count_dict={}, after=None):
         word_list = list(set(word.lower() for word in word_list))
         for word in word_list:
             count_dict[word] = 0
-    data = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
+    text = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
                   headers=headers,
-                  params={'after': after} if after else {}).json()
+                  params={'after': after} if after else {}).text
+    data = json.loads(text)
+    print(data)
     after = data["data"]["after"]
     try:
         if len(data["data"]["children"]) == 0:

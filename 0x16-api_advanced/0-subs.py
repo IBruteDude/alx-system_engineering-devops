@@ -36,7 +36,7 @@ def number_of_subscribers(subreddit):
                  for key, value in data.items()]))
         return data['subscribers']
     except json.decoder.JSONDecodeError as e:
-        return 0
+        print(text)
     except KeyError as e:
         return 0
 

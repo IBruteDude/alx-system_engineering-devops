@@ -25,9 +25,10 @@ headers = {
 def recurse(subreddit, hot_list=[], after=None):
     """ make a paginated recursive api call to get a list of hot articles """
     try:
-        data = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
+        text = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
                       headers=headers,
-                      params={'after': after} if after else {}).json()
+                      params={'after': after} if after else {}).text
+        data = json.loads(text)
         # json.dump(hot_list, open('resp.json', 'w'))
         if len(data["data"]["children"]) == 0:
             return hot_list
@@ -35,9 +36,8 @@ def recurse(subreddit, hot_list=[], after=None):
             hot_list += data["data"]["children"]
             return recurse(subreddit, hot_list, data["data"]["after"])
     except json.decoder.JSONDecodeError as e:
-        print("None")
-    except KeyError as e:
-        print("None")
+        print(text)
+
 
 
 if __name__ == '__main__':
