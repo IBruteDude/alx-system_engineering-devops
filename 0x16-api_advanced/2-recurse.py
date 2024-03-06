@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-""" Module for the number of subsribers function """
+""" Module for the recursive requests function """
 from html import unescape
 import json
 import requests as rs
-
 
 headers = {
     "User-Agent": "AlxAPI/0.0.1",
@@ -21,24 +20,27 @@ headers = {
 }
 
 
-def number_of_subscribers(subreddit):
-    """ get the number of subsribers from a valid subreddit """
-    resp = rs.get(f'https://oauth.reddit.com/r/{subreddit}/about',
-                  headers=headers)
-    text = unescape(resp.text)
+def recurse(subreddit, hot_list=[], after=None):
+    """ make a paginated recursive api call to get a list of hot articles """
     try:
-        data = json.loads(text)['data']
-        sep = ',\n'
-        resp_data = "{{\n{}\n}}".format(
-            sep.join(
-                [f'\t{repr(key)}: {repr(value)}'
-                 for key, value in data.items()]))
-        return data['subscribers']
+        text = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
+                      headers=headers,
+                      params={'after': after} if after else {}).text
+        data = json.loads(text)
+        # json.dump(hot_list, open('resp.json', 'w'))
+
+        if data["data"]["children"] is None:
+            return None
+
+        if len(data["data"]["children"]) == 0:
+            return len(hot_list)
+        else:
+            hot_list += data["data"]["children"]
+            return recurse(subreddit, hot_list, data["data"]["after"])
     except json.decoder.JSONDecodeError as e:
+        # print(e)
         print(text)
-    except KeyError as e:
-        return 0
 
 
 if __name__ == '__main__':
-    print("{}".format(number_of_subscribers('programming')))
+    print(recurse('this_is_a_fake_subreddit'))
