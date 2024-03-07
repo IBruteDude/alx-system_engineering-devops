@@ -1,0 +1,256 @@
+#!/usr/bin/env bash
+# Create the Datadog dashboard with all the widgets
+{
+  "custom_links": [
+    {
+      "is_hidden": false,
+      "label": "Search logs for {{host}}",
+      "link": "https://app.datadoghq.com/logs?query={{host}}",
+      "override_label": "logs"
+    }
+  ],
+  "events": [
+    {
+      "q": "",
+      "tags_execution": "string"
+    }
+  ],
+  "legend_size": "string",
+  "requests": [
+    {
+      "apm_query": {
+        "compute": {
+          "aggregation": "avg",
+          "facet": "@duration",
+          "interval": 5000
+        },
+        "group_by": [
+          {
+            "facet": "resource_name",
+            "limit": 50,
+            "sort": {
+              "aggregation": "avg",
+              "facet": "@string_query.interval",
+              "order": "desc"
+            }
+          }
+        ],
+        "index": "days-3,days-7",
+        "multi_compute": [
+          {
+            "aggregation": "avg",
+            "facet": "@duration",
+            "interval": 5000
+          }
+        ],
+        "search": {
+          "query": ""
+        }
+      },
+      "event_query": {
+        "search": "",
+        "tags_execution": ""
+      },
+      "formulas": [
+        {
+          "alias": "string",
+          "cell_display_mode": "number",
+          "conditional_formats": [
+            {
+              "comparator": ">",
+              "custom_bg_color": "string",
+              "custom_fg_color": "string",
+              "hide_value": false,
+              "image_url": "string",
+              "metric": "string",
+              "palette": "blue",
+              "timeframe": "string",
+              "value": 0
+            }
+          ],
+          "formula": "func(a) + b",
+          "limit": {
+            "count": "integer",
+            "order": "string"
+          },
+          "style": {
+            "palette": "classic",
+            "palette_index": 1
+          }
+        }
+      ],
+      "log_query": {
+        "compute": {
+          "aggregation": "avg",
+          "facet": "@duration",
+          "interval": 5000
+        },
+        "group_by": [
+          {
+            "facet": "resource_name",
+            "limit": 50,
+            "sort": {
+              "aggregation": "avg",
+              "facet": "@string_query.interval",
+              "order": "desc"
+            }
+          }
+        ],
+        "index": "days-3,days-7",
+        "multi_compute": [
+          {
+            "aggregation": "avg",
+            "facet": "@duration",
+            "interval": 5000
+          }
+        ],
+        "search": {
+          "query": ""
+        }
+      },
+      "network_query": {
+        "compute": {
+          "aggregation": "avg",
+          "facet": "@duration",
+          "interval": 5000
+        },
+        "group_by": [
+          {
+            "facet": "resource_name",
+            "limit": 50,
+            "sort": {
+              "aggregation": "avg",
+              "facet": "@string_query.interval",
+              "order": "desc"
+            }
+          }
+        ],
+        "index": "days-3,days-7",
+        "multi_compute": [
+          {
+            "aggregation": "avg",
+            "facet": "@duration",
+            "interval": 5000
+          }
+        ],
+        "search": {
+          "query": ""
+        }
+      },
+      "process_query": {
+        "filter_by": [],
+        "limit": "integer",
+        "metric": "system.load.1",
+        "search_by": "string"
+      },
+      "profile_metrics_query": {
+        "compute": {
+          "aggregation": "avg",
+          "facet": "@duration",
+          "interval": 5000
+        },
+        "group_by": [
+          {
+            "facet": "resource_name",
+            "limit": 50,
+            "sort": {
+              "aggregation": "avg",
+              "facet": "@string_query.interval",
+              "order": "desc"
+            }
+          }
+        ],
+        "index": "days-3,days-7",
+        "multi_compute": [
+          {
+            "aggregation": "avg",
+            "facet": "@duration",
+            "interval": 5000
+          }
+        ],
+        "search": {
+          "query": ""
+        }
+      },
+      "q": "jvm.heap.memory",
+      "queries": [],
+      "response_format": "timeseries",
+      "rum_query": {
+        "compute": {
+          "aggregation": "avg",
+          "facet": "@duration",
+          "interval": 5000
+        },
+        "group_by": [
+          {
+            "facet": "resource_name",
+            "limit": 50,
+            "sort": {
+              "aggregation": "avg",
+              "facet": "@string_query.interval",
+              "order": "desc"
+            }
+          }
+        ],
+        "index": "days-3,days-7",
+        "multi_compute": [
+          {
+            "aggregation": "avg",
+            "facet": "@duration",
+            "interval": 5000
+          }
+        ],
+        "search": {
+          "query": ""
+        }
+      },
+      "security_query": {
+        "compute": {
+          "aggregation": "avg",
+          "facet": "@duration",
+          "interval": 5000
+        },
+        "group_by": [
+          {
+            "facet": "resource_name",
+            "limit": 50,
+            "sort": {
+              "aggregation": "avg",
+              "facet": "@string_query.interval",
+              "order": "desc"
+            }
+          }
+        ],
+        "index": "days-3,days-7",
+        "multi_compute": [
+          {
+            "aggregation": "avg",
+            "facet": "@duration",
+            "interval": 5000
+          }
+        ],
+        "search": {
+          "query": ""
+        }
+      },
+      "style": {
+        "palette": "string"
+      }
+    }
+  ],
+  "show_legend": false,
+  "time": {
+    "live_span": "5m"
+  },
+  "title": "string",
+  "title_align": "string",
+  "title_size": "string",
+  "type": "heatmap",
+  "yaxis": {
+    "include_zero": false,
+    "label": "string",
+    "max": "string",
+    "min": "string",
+    "scale": "string"
+  }
+}
