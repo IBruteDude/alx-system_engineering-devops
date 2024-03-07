@@ -23,7 +23,7 @@ headers = {
 
 def top_ten(subreddit):
     """ get the titles of the top ten subreddits """
-    resp = rs.get(f'https://oauth.reddit.com/r/{subreddit}/hot',
+    resp = rs.get('https://oauth.reddit.com/r/{}/hot'.format(subreddit),
                   headers=headers, params={'limit': 10})
     text = unescape(resp.text)
     data = json.loads(text)

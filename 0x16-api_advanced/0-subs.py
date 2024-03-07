@@ -23,7 +23,7 @@ headers = {
 
 def number_of_subscribers(subreddit):
     """ get the number of subsribers from a valid subreddit """
-    resp = rs.get(f'https://oauth.reddit.com/r/{subreddit}/about',
+    resp = rs.get('https://oauth.reddit.com/r/{}/about'.format(subreddit),
                   headers=headers)
     text = unescape(resp.text)
     try:
@@ -31,7 +31,7 @@ def number_of_subscribers(subreddit):
         sep = ',\n'
         resp_data = "{{\n{}\n}}".format(
             sep.join(
-                [f'\t{repr(key)}: {repr(value)}'
+                ['\t{}: {}'.format(repr(key), repr(value))
                  for key, value in data.items()]))
         return data['subscribers']
     except json.decoder.JSONDecodeError as e:
